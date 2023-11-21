@@ -9,12 +9,24 @@ public class ModyfikujOferte {
         this.bazaDanychSklepu = bazaDanychSklepu;
     }
     void dodajPromocje(Oferta oferta, Promocja promocja){
-        bazaDanychSklepu.dodajPromocje(oferta, promocja);
+        try{
+            bazaDanychSklepu.dodajPromocje(oferta, promocja);
+        }catch(RuntimeException e){
+            System.err.println(e.getMessage());
+        }
     }
     void usunPromocje(Oferta oferta){
-        bazaDanychSklepu.usunPromocje(oferta);
+        try{
+            bazaDanychSklepu.usunPromocje(oferta);
+        }catch(RuntimeException e){
+            System.err.println(e.getMessage());
+        }
     }
     void usunOferte(Oferta oferta){
-        bazaDanychSklepu.usunOferte(oferta);
+        try{
+            bazaDanychSklepu.usunOferte(oferta);
+        }catch(RuntimeException e){
+            System.err.println(e.getMessage());
+        }
     }
 }

@@ -23,7 +23,7 @@ public class Oferta {
             setPromocja(null);
             setCzyNaPromocji(false);
         }else{
-            throw new RuntimeException("Oferta nie ma promocji, nie można usunąć prmocji")
+            throw new RuntimeException("Oferta nie ma promocji, nie można usunąć prmocji");
         }
 
     }
