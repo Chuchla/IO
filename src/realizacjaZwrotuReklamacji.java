@@ -4,7 +4,7 @@ import BazaDanychMagazynu.StanZamowienia;
 public class realizacjaZwrotuReklamacji {
         private BazaDanychMagazynu bazaDanychMagazynu;
 
-    public realizacjaZwrotuReklamacji(BazaDanychMagazynu bazaDanychMagazynu) {
+    private realizacjaZwrotuReklamacji(BazaDanychMagazynu bazaDanychMagazynu) {
         this.bazaDanychMagazynu = bazaDanychMagazynu;
     }
     private void realizacjaNowegoZamowienia(Zamowienie zamowienie){

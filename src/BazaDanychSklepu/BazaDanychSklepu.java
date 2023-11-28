@@ -22,7 +22,11 @@ public class BazaDanychSklepu {
         listaOfert.get(wyszukajOferte(oferta)).dodajPromocje(promocja);
     }
 
-    int wyszukajOferte(Oferta oferta) {
+    private int wyszukajOferte(Oferta oferta) {
         return listaOfert.indexOf(oferta);
+    }
+
+    private void dodajOferte(Oferta oferta){
+        listaOfert.add(oferta);
     }
 }
