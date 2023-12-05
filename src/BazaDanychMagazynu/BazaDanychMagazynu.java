@@ -27,8 +27,9 @@ public class BazaDanychMagazynu {
     private void uzupelnienieMagazynu(Produkt produkt, int iloscTowaru) {
         int idProduktu = produkt.getIdPozycjiWMagazynie();
         int iloscNaStanie = produkt.getIloscNaStanie();
-        if (WyszukajTowar(idProduktu) != null) {
-            WyszukajTowar(idProduktu).setIloscNaStanie(iloscNaStanie + iloscTowaru);
+        Produkt wyszukanyProdukt = WyszukajTowar(idProduktu);
+        if (wyszukanyProdukt != null) {
+            wyszukanyProdukt.setIloscNaStanie(iloscNaStanie + iloscTowaru);
         } else {
             produkt.setIloscNaStanie(iloscTowaru);
             listaAsortymentu.add(produkt);
