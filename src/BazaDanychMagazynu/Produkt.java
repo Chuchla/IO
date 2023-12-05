@@ -7,9 +7,8 @@ public class Produkt {
     private int iloscSprzedanych;
     private int idProduktuProducenta;
 
-    public Produkt(int iloscNaStanie, int iloscSprzedanych, int idProduktuProducenta) {
+    public Produkt(int iloscSprzedanych, int idProduktuProducenta) {
         this.idPozycjiWMagazynie = ++licznik;
-        this.iloscNaStanie = iloscNaStanie;
         this.iloscSprzedanych = iloscSprzedanych;
         this.idProduktuProducenta = idProduktuProducenta;
     }

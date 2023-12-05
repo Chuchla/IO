@@ -11,7 +11,8 @@ public class BazaDanychMagazynu {
                 return produkt;
             }
         }
-        throw new RuntimeException("Produkt nie istnieje w bazie Asortymentu");
+        //throw new RuntimeException("Produkt nie istnieje w bazie Asortymentu");
+        return null;
     }
 
     private int sprawdzStan(Produkt produkt) {
@@ -24,7 +25,14 @@ public class BazaDanychMagazynu {
     }
 
     private void uzupelnienieMagazynu(Produkt produkt, int iloscTowaru) {
-        WyszukajTowar(produkt.getIdPozycjiWMagazynie()).setIloscNaStanie(produkt.getIloscNaStanie() + iloscTowaru);
+        int idProduktu = produkt.getIdPozycjiWMagazynie();
+        int iloscNaStanie = produkt.getIloscNaStanie();
+        if (WyszukajTowar(idProduktu) != null) {
+            WyszukajTowar(idProduktu).setIloscNaStanie(iloscNaStanie + iloscTowaru);
+        } else {
+            produkt.setIloscNaStanie(iloscTowaru);
+            listaAsortymentu.add(produkt);
+        }
     }
 
     private void pobierzProduktZMagazynu(ArrayList<Produkt> produkty) {
@@ -38,10 +46,15 @@ public class BazaDanychMagazynu {
     }
 
     public void realizacjaNowegoZamowienia(Zamowienie zamowienie) {
-        pobierzProduktZMagazynu(zamowienie.getZamowioneTowary());
-        wyslanieZamowienia(zamowienie);
+        try {
+            pobierzProduktZMagazynu(zamowienie.getZamowioneTowary());
+            wyslanieZamowienia(zamowienie);
+        } catch (RuntimeException e) {
+            System.err.println(e.getMessage());
+        }
     }
-    private float zwrotPieniedzy(Zamowienie zamowienie){
+
+    private float zwrotPieniedzy(Zamowienie zamowienie) {
         return zamowienie.getKwota();
     }
 
